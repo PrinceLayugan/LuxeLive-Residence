@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LuxeLive Residences</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+    }
+
+    header {
+  background-image: url('https://images.unsplash.com/photo-1561321698-40ae82a47b9e?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  width: 100%;
+  height: 60vh;   
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  margin: 0 auto;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);  
+  z-index: 1;   
+}
+
+ 
+header > * {
+  position: relative;
+  z-index: 2;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 20px 40px;
+  background-color: rgba(0, 0, 0, 0.5);   
+  z-index: 10;   
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.hero-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Text {
+  font-size: 4rem;  
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.5);  
+}
+.subText {
+  font-size: 1.25rem;
+  color: white;
+  margin-top: 20px;
+  text-align: center;
+  max-width: 800px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+.btn {
+  background-color: #fff;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  width: fit-content;
+  white-space: nowrap;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.1);   
+  background-color: #007bff;  
+  color: white;   
+}
+.cta-btn {
+  background-color: #007bff;  
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 50px;  
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-btn:hover {
+  transform: scale(1.1);   
+  background-color: #0056b3;  
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.5);  
+}
+
+.cta-btn:active {
+  transform: scale(1);  
+  background-color: #004085;  
+}
+
+
+    section {
+      padding: 40px;
+      text-align: center;
+    }
+
+    .facilities-section {
+  text-align: center;
+  padding: 20px;
+}
+
+.facilities-section .facilities-label {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.facilities-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.facility {
+  width: 30%;
+  text-align: center;
+}
+
+.facility img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+}
+
+.facility h3 {
+  margin-top: 10px;
+}
+
+
+
+    .testimonials {
+  min-height: 60vh;
+  padding: 40px;
+  background-color: #f4f4f4;
+  text-align: center;
+  display: flex;                
+  justify-content: center;      
+  align-items: center;          
+  gap: 30px;                    
+  flex-wrap: wrap;              
+}
+
+.testimonials h2 {
+  width: 100%;                  
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-align: center;           
+  font-weight: bold;
+}
+
+.testimonial {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 300px;  
+}
+
+.testimonial img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 50px;
+}
+
+.testimonial h4 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.testimonial p {
+  font-size: 1rem;
+  color: #555;
+}
+
+
+
+footer {
+  background-color: #111;
+  color: white;
+  padding: 40px;
+  text-align: center;
+  height: 40vh;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  align-items: center;      
+}
+
+
+    input[type="email"] {
+      padding: 10px;
+      width: 250px;
+      margin-right: 10px;
+    }
+    .cta-section {
+  background: #f4f4f4;
+  color: black;
+  text-align: center;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cta-box {
+  background-color: white;
+  padding: 40px 30px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  max-width: 700px;
+  width: 100%;
+}
+
+.cta-box h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.cta-box p {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-btn {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 14px 28px;
+  font-size: 1rem;
+  border-radius: 30px;   
+  text-decoration: none;
+  font-weight: bold;
+  border: 0;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+    @media screen and (max-width: 768px) {
+      .hero-content {
+        width: 100%;
+        height: auto;
+        padding-top: 60px;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      nav div:last-child {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      input[type="email"] {
+        width: 100%;
+        margin: 10px 0;
+      }
+
+      footer form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .Text {
+    font-size: 2.5rem;
+  }
+  
+body {
+  animation: fadeIn 1.5s ease-in-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+ 
+.cta-section {
+  animation: fadeIn 1.5s ease-in-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+ 
+.cta-btn {
+  animation: fadeIn 1.5s ease-in-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;  
+}
+
+ 
+.facilities-section {
+  animation: fadeIn 1.5s ease-in-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+ 
+.testimonials {
+  animation: fadeIn 1.5s ease-in-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;  
+}
+
+ 
+.testimonial {
+  animation: fadeIn 1.5s ease-in-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-delay: 1.5s;  
+}
+
+ 
+footer {
+  animation: fadeIn 1.5s ease-in-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-delay: 2s;  
+}
+ 
+div a {
+  color: #333;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  margin-right: 20px;
+  transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+}
+
+ 
+.nav-link:hover {
+  transform: scale(1.1);   
+  color: #007bff;  
+}
+
+ 
+.btn {
+  padding: 10px 20px;
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  color: #007bff;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+ 
+.btn:hover {
+  transform: scale(1.1);  
+  background-color: #007bff;  
+  color: white;  
+}
+
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div>LuxeLive</div>
+      <div>
+        <a href="#">Home</a>
+        <a href="#">Contact Us</a>
+        <a href="#">About Us</a>
+        <a href="#" class="btn">Inquire Now</a>
+      </div>
+    </nav> 
+    <div class="Text">Welcome to LuxeLive Residence</div>
+    <p class="subText">Experience luxurious living in the center of the city with exceptional comfort, panoramic views, and contemporary conveniences.</p>
+  </header>
+
+  <section>
+    <div class="facilities-section">
+       
+      <div class="facilities-label">Facilities</div>
+      
+       
+      <div class="facilities-container">
+        <div class="facility">
+          <img src="https://images.unsplash.com/photo-1543489822-c49534f3271f?q=80&w=2532&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Facility 1" />
+          <h3>Pool Area</h3>
+          <p>Enjoy a refreshing swim in our stunning pool.</p>
+        </div>
+        
+        <div class="facility">
+          <img src="https://images.unsplash.com/photo-1637666062717-1c6bcfa4a4df?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Facility 2" />
+          <h3>Gym</h3>
+          <p>State-of-the-art gym facilities available.</p>
+        </div>
+        
+        <div class="facility">
+          <img src="https://images.unsplash.com/photo-1713270176378-45fbf4a27099?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Facility 3" />
+          <h3>Sauna</h3>
+          <p>Relax and unwind in our luxurious sauna.</p>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+
+  <section class="testimonials">
+
+      <h2>Testimonials</h2>
+      <div class="testimonial">
+          <img src="https://images.unsplash.com/photo-1664575600850-c4b712e6e2bf?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Jessica Paige" />
+          <h4>Jessica Paige</h4>
+          <p>"The amenities are top-notch! I feel right at home here."</p>
+      </div>
+      <div class="testimonial">
+          <img src="https://images.unsplash.com/photo-1667132970685-a2109a3ed00d?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Jezzabel Si" />
+          <h4>Jezzabel Si</h4>
+          <p>"Living here has been a dream! The views and the facilities are simply stunning."</p>
+      </div>
+     
+    <div class="testimonial">
+      <img src="https://images.unsplash.com/photo-1488716820095-cbe80883c496?q=80&w=2572&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Olivia Burr" />
+      <h4>Olivia Burr</h4>
+      <p>"The park area is perfect for a morning walk, and the pool is always inviting. I'm so happy I moved in!"</p>
+    </div>
+    <div class="testimonial">
+      <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=2671&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="James Tzu" />
+      <h4>James Tzu</h4>
+      <p>"Modern design, excellent location, and all the comforts I need. Highly recommend!"</p>
+    </div>
+    <div class="testimonial">
+      <img src="https://images.unsplash.com/photo-1590086782957-93c06ef21604?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="James David" />
+      <h4>James David</h4>
+      <p>"The quality of living here exceeds all my expectations. I couldn’t ask for a better place to live."</p>
+    </div>
+  </section>
+  
+  <section class="cta-section">
+    <div class="cta-box">
+      <h2>Ready to Elevate Your Living?</h2>
+      <p>Book a private tour or inquire today and experience life at LuxeLive Residences.</p>
+      <a href="#contact" class="cta-btn">Inquire Now</a>
+    </div>
+  </section>
+  
+  <footer>
+    <form action="#" method="post" onsubmit="return validateEmail()">
+      <label for="email">Subscribe to our newsletter</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required />
+      <button type="submit" class="cta-btn">Subscribe</button>
+    </form>
+  </footer>
+
+  <script>
+ 
+    window.onload = function() {
+      document.body.style.animation = 'fadeIn 1.5s ease-in-out forwards';
+    };
+  
+ 
+    document.querySelector('.btn').addEventListener('mouseenter', function() {
+      this.style.transition = "transform 0.3s ease, background-color 0.3s ease"; // Optional for extra smoothness
+    });
+  
+ 
+    function validateEmail() {
+      const email = document.getElementById('email').value;
+      const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+      
+      if (!regex.test(email)) {
+        alert('Please enter a valid email address');
+        return false;  // Prevent form submission
+      }
+      return true;  // Allow form submission
+    }
+  
+  
+    const form = document.getElementById('yourFormId'); 
+    form.addEventListener('submit', function(event) {
+      if (!validateEmail()) {
+        event.preventDefault();  
+      }
+    });
+  </script>
+  
+  
+</body>
+</html>
